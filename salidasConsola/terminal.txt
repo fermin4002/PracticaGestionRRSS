@@ -1,0 +1,4 @@
+fichero CSV encontrado
+fichero JSON encontrado
+Creador encontrado
+Mtricas totales de creadorId 5 son:5
