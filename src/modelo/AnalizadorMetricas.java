@@ -276,18 +276,20 @@ public class AnalizadorMetricas {
 	
 	
 	public String mejorRendimientoTipoPorPlataforma(String plataforma) {
-		String salida=null;
+		String salida="No participa en esta plataforma";
 		double rendimiento=-1;
 		List<String> tipos=tiposExistentes();
-		List<Metrica> metricas=filtrarPorplataforma(plataforma);
-		double temp;
-		for(String clave:tipos) {
-			temp=promedioVistasTipo(clave);
-			if(temp>rendimiento) {
-				salida=clave;
-				rendimiento=temp;
-			}if(temp==rendimiento) {
-				salida=salida+"*"+clave;
+		if(null!=tipos) {
+			List<Metrica> metricas=filtrarPorplataforma(plataforma);
+			double temp;
+			for(String clave:tipos) {
+				temp=promedioVistasTipo(clave);
+				if(temp>rendimiento) {
+					salida=clave;
+					rendimiento=temp;
+				}else if(temp==rendimiento) {
+					salida=salida+"*"+clave;
+				}
 			}
 		}
 		return salida;
@@ -334,9 +336,9 @@ public class AnalizadorMetricas {
 			if(clave.getValue()>total) {
 				total=clave.getValue();
 				salida=clave.getKey();
-			}else if(clave.getValue()==total) {
+			}/*else if(clave.getValue()==total) {
 				salida=salida+"*"+clave.getKey();
-			}
+			}*/
 		}
 		
 		return salida;
@@ -422,6 +424,18 @@ public class AnalizadorMetricas {
 		for(Metrica clave:metricas) {
 			if(clave.getComentarios()>=min&&clave.getComentarios()<=max) {
 				salida.add(clave);
+			}
+		}
+		
+		return salida;
+	}
+	
+	public Metrica extraerMetrica(String publucacion) {
+		Metrica salida=null;
+		
+		for(Metrica clave:metricas) {
+			if(clave.getContenido().equalsIgnoreCase(publucacion)) {
+				salida=clave;
 			}
 		}
 		

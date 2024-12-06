@@ -21,7 +21,7 @@ public class Colaboracion {
 	private String fecha_inicio;
 	
 	@CsvBindByName(column = "creador")
-	private String creaodr;
+	private String creador;
 	
 	@CsvBindByName(column = "colaborador")
 	private String colaborador;
@@ -33,11 +33,11 @@ public class Colaboracion {
 	@CsvBindByName(column = "crecimiento_seguidores")
 	private int crecimiento_seguidores;
 
-	public Colaboracion(int creador_id, String fecha_inicio, String creaodr, String colaborador, int vistas_mensuales,
+	public Colaboracion(int creador_id, String fecha_inicio, String creaodor, String colaborador, int vistas_mensuales,
 			int crecimiento_seguidores) {
 		this.creador_id = creador_id;
 		this.fecha_inicio = fecha_inicio;
-		this.creaodr = creaodr;
+		this.creador = creaodor;
 		this.colaborador = colaborador;
 		this.vistas_mensuales = vistas_mensuales;
 		this.crecimiento_seguidores = crecimiento_seguidores;
@@ -59,12 +59,12 @@ public class Colaboracion {
 		this.fecha_inicio = fecha_inicio;
 	}
 
-	public String getCreaodr() {
-		return creaodr;
+	public String getcreador() {
+		return creador;
 	}
 
-	public void setCreaodr(String creaodr) {
-		this.creaodr = creaodr;
+	public void setcreador(String creador) {
+		this.creador = creador;
 	}
 
 	public String getColaborador() {
@@ -93,7 +93,7 @@ public class Colaboracion {
 
 	@Override
 	public String toString() {
-		return "Colaboracion [creador_id=" + creador_id + ", fecha_inicio=" + fecha_inicio + ", creaodr=" + creaodr
+		return "Colaboracion [creador_id=" + creador_id + ", fecha_inicio=" + fecha_inicio + ", creador=" + creador
 				+ ", colaborador=" + colaborador + ", vistas_mensuales=" + vistas_mensuales
 				+ ", crecimiento_seguidores=" + crecimiento_seguidores + "]";
 	}

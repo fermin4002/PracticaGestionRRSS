@@ -1,6 +1,6 @@
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 import com.opencsv.bean.CsvBindByName;
 
@@ -22,7 +22,7 @@ public class Metrica {
 	private String plataforma;
 
 	@CsvBindByName(column = "fecha")
-	private String fecha;
+	private /*Date*/String fecha;
 	
 	@CsvBindByName(column = "contenido")
 	private String contenido;
@@ -67,7 +67,7 @@ public class Metrica {
 		this.compartidos=0;
 	}
 	
-	public Metrica(int creador_id, String plataforma, String fecha, String contenido, String tipo, int vistas,
+	public Metrica(int creador_id, String plataforma, /*Date*/String fecha, String contenido, String tipo, int vistas,
 			int me_gusta, int comentarios, int compartidos) {
 		this.creador_id = creador_id;
 		this.plataforma = plataforma;
@@ -105,12 +105,12 @@ public class Metrica {
 	}
 
 
-	public String getFecha() {
+	public /*Date*/String getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(String fecha) {
+	public void setFecha(/*Date*/String fecha) {
 		this.fecha = fecha;
 	}
 
