@@ -1,4 +1,9 @@
-fichero CSV encontrado
 fichero JSON encontrado
+fichero CSV encontrado
 Creador encontrado
-Mtricas totales de creadorId 5 son:5
+Creador encontrado
+Creador encontrado
+Creador encontrado
+Creador encontrado
+Mtricas totales de creadorId 1 son:0
+Metricas Analizadas
