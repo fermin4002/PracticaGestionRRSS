@@ -2,15 +2,13 @@ package modelo;
 
 import com.opencsv.bean.CsvBindByName;
 
-/*
- "colaborador" : "Pedro Gonzalez",
-			"tematica" : "Tecnologia",
-			"fecha_inicio" : "2023-07-01",
-			"fecha_fin" : "2023-03-30",
-			"tipo" : "Patrocinado",
-			"estado" : "Activa"
- * */
-public class Colaboracion {
+public class ColaboracionReporte  {
+	
+	@CsvBindByName(column = "impacto_seguidores")
+	private int impacto_seguidores;
+	
+	@CsvBindByName(column = "visualizaciones")
+	private int visualizaciones;
 	
 	@CsvBindByName(column = "creador_id")
 	private int creador_id;
@@ -20,10 +18,7 @@ public class Colaboracion {
 	
 	@CsvBindByName(column = "colaborador")
 	private String colaborador;
-	
-	@CsvBindByName(column = "tematica")
-	private String tematica;
-	
+
 	@CsvBindByName(column = "fecha_inicio")
 	private String fecha_inicio;
 	
@@ -31,25 +26,35 @@ public class Colaboracion {
 	private String fecha_fin;
 
 	
-	@CsvBindByName(column = "tipo")
-	private String tipo;
-	
-	@CsvBindByName(column = "estado")
-	private String estado;
 
-	public Colaboracion(int creador_id, String creador, String colaborador, String fecha_inicio, String fecha_fin,
-			String tipo, String estado,String tematica) {
-
+	public ColaboracionReporte(int impacto_seguidores, int visualizaciones, int creador_id, String creador, String colaborador,
+			String fecha_inicio, String fecha_fin) {
+		
+		this.impacto_seguidores = impacto_seguidores;
+		this.visualizaciones = visualizaciones;
 		this.creador_id = creador_id;
 		this.creador = creador;
 		this.colaborador = colaborador;
 		this.fecha_inicio = fecha_inicio;
 		this.fecha_fin = fecha_fin;
-		this.tipo = tipo;
-		this.estado = estado;
-		this.tematica=tematica;
 	}
 
+	public int getimpacto_seguidores() {
+		return impacto_seguidores;
+	}
+
+	public void setimpacto_seguidores(int impacto_seguidores) {
+		this.impacto_seguidores = impacto_seguidores;
+	}
+
+	public int getVisualizaciones() {
+		return visualizaciones;
+	}
+
+	public void setVisualizaciones(int visualizaciones) {
+		this.visualizaciones = visualizaciones;
+	}
+	
 	public int getCreador_id() {
 		return creador_id;
 	}
@@ -90,44 +95,13 @@ public class Colaboracion {
 		this.fecha_fin = fecha_fin;
 	}
 
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getTematica() {
-		return tematica;
-	}
-
-	public void setTematica(String tematica) {
-		this.tematica = tematica;
-	}
-
 	@Override
 	public String toString() {
-		return "Colaboracion [creador_id=" + creador_id + ", creador=" + creador + ", colaborador=" + colaborador
-				+ ", tematica=" + tematica + ", fecha_inicio=" + fecha_inicio + ", fecha_fin=" + fecha_fin + ", tipo="
-				+ tipo + ", estado=" + estado + "]";
+		return "ColaboracionReporte [impacto_seguidores=" + impacto_seguidores + ", visualizaciones=" + visualizaciones + ", creador_id="
+				+ creador_id + ", creador=" + creador + ", colaborador=" + colaborador + ", fecha_inicio="
+				+ fecha_inicio + ", fecha_fin=" + fecha_fin + "]";
 	}
 
-	
-	
-	
-	
-	
-
-	
 	
 	
 	

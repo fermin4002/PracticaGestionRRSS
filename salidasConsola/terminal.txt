@@ -1,9 +1,0 @@
-fichero JSON encontrado
-fichero CSV encontrado
-Creador encontrado
-Creador encontrado
-Creador encontrado
-Creador encontrado
-Creador encontrado
-Mtricas totales de creadorId 1 son:0
-Metricas Analizadas

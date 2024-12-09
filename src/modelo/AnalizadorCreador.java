@@ -1,13 +1,12 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.opencsv.bean.CsvDate;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 
 public class AnalizadorCreador {
 	
@@ -111,19 +110,28 @@ public class AnalizadorCreador {
 		return colaboracionesSalida;
 	}
 	
+	/*"colaborador" : "Pedro Gonzalez",
+	"tematica" : "Tecnologia",
+	"fecha_inicio" : "2023-07-01",
+	"fecha_fin" : "2023-03-30",
+	"tipo" : "Patrocinado",
+	"estado" : "Activa"*/
 	public void conversionColaboraciones(ArrayNode colaboracionesJson, List<Colaboracion> colaboracionesCsv) {
 		int id=getId();
 		String creador=getNombre();
-		String colaborador;
-		String fecha;
-		int vistas_mensuales=getPromedioVistasMensuales();
-		int crecimiento=getTasaCrecimientoSeguidores();
+		String colaborador,tipo,estado,tematica;
+		String fecha_inicio,fecha_fin;
+		//int vistas_mensuales=getPromedioVistasMensuales();
+		//int crecimiento=getTasaCrecimientoSeguidores();
 		
 		for(JsonNode clave:colaboracionesJson) {
 			colaborador=clave.get("colaborador").asText();
-			fecha=clave.get("fecha_inicio").asText();
-			
-			colaboracionesCsv.add(new Colaboracion(id,fecha,creador,colaborador,vistas_mensuales,crecimiento));
+			fecha_inicio=clave.get("fecha_inicio").asText();
+			fecha_fin=clave.get("fecha_fin").asText();
+			estado=clave.get("estado").asText();
+			tipo=clave.get("tipo").asText();
+			tematica=clave.get("tematica").asText();
+			colaboracionesCsv.add(new Colaboracion(id,creador,colaborador,fecha_inicio,fecha_fin,tipo,estado,tematica));
 		}
 		
 		
@@ -201,7 +209,7 @@ public class AnalizadorCreador {
 		return temp.get("interacciones").asInt();
 	}
 	
-	public ArrayList<String> extraerHistorico(String plataforma){
+	public ArrayList<String> extraerFechasHistorico(String plataforma){
 		ArrayList<String> historico=new ArrayList<String>();
 		
 		for(JsonNode clave:extraerPlataforma(plataforma).get("historico")) {
@@ -211,9 +219,36 @@ public class AnalizadorCreador {
 		return historico;
 	}
 	
-	public ArrayNode extraerColaboraciones(){
-			
-		return (ArrayNode) creador.get("colaboraciones");
+	public ArrayNode extraerHistorico(String plataforma) {
+		ArrayNode historico=null;
+		for(JsonNode clave:creador.get("plataformas")) {
+			if(clave.get("nombre").asText().equalsIgnoreCase(plataforma)) {
+				historico=(ArrayNode) clave.get("historico");
+			}
+		}
+		
+		return historico;
+	}
+	
+	public int  extraerTotalSeguidores() {
+		int total=0;
+		
+		
+		for(JsonNode clave:creador.get("plataformas")) {
+			total=total+clave.get("seguidores").asInt();
+		}
+		
+		
+		return total;
+	}
+	
+	public void insertarColaboracion(ObjectNode colab) {
+		
+		ArrayNode temp=(ArrayNode) creador.get("colaboraciones");
+		
+		temp.add(colab);
+		
+		//add(colab);
 		
 	}
 	

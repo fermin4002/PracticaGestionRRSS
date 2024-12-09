@@ -10,10 +10,66 @@ public class AnalizadorMetricas {
 	//***************************
 	private List<Metrica> metricas;
 	
+	public AnalizadorMetricas() {	
+		
+		
+	}
 	
 	public AnalizadorMetricas(List<Metrica> metricas) {	
 		this.metricas = metricas;
 		
+	}
+	
+	public List<Metrica> getMetricas() {
+		return metricas;
+	}
+
+	public void setMetricas(List<Metrica> metricas) {
+		this.metricas = metricas;
+	}
+	//totales
+	public int totalVistas() {
+		int salida=0;
+		
+		for(Metrica clave: metricas) {
+			salida=salida+clave.getVistas();
+		}
+			
+		return salida;	
+	}
+	
+	
+	public int totalMe_gusta() {
+		int salida=0;
+		
+		for(Metrica clave: metricas) {
+			salida=salida+clave.getMe_gusta();
+			
+		}
+			
+		return salida;	
+	}
+	
+	public int totalCompartidos() {
+		int salida=0;
+		
+		for(Metrica clave: metricas) {
+			salida=salida+clave.getCompartidos();
+			
+		}
+			
+		return salida;	
+	}
+	
+	public int totalComentarios() {
+		int salida=0;
+		
+		for(Metrica clave: metricas) {
+			salida=salida+clave.getComentarios();
+			
+		}
+			
+		return salida;	
 	}
 	
 	//Promedios
@@ -28,11 +84,12 @@ public class AnalizadorMetricas {
 		return salida/totalPublicaciones;	
 	}
 	
+	
 	public double promedioMe_gusta() {
 		double salida=0;
 		int totalPublicaciones=0;
 		for(Metrica clave: metricas) {
-			salida=salida+clave.getVistas();
+			salida=salida+clave.getMe_gusta();
 			totalPublicaciones++;
 		}
 			
@@ -43,7 +100,7 @@ public class AnalizadorMetricas {
 		double salida=0;
 		int totalPublicaciones=0;
 		for(Metrica clave: metricas) {
-			salida=salida+clave.getVistas();
+			salida=salida+clave.getCompartidos();
 			totalPublicaciones++;
 		}
 			
@@ -54,123 +111,14 @@ public class AnalizadorMetricas {
 		double salida=0;
 		int totalPublicaciones=0;
 		for(Metrica clave: metricas) {
-			salida=salida+clave.getVistas();
+			salida=salida+clave.getComentarios();
 			totalPublicaciones++;
 		}
 			
 		return salida/totalPublicaciones;	
 	}
 	
-	
-	//promedio por plataforma
-	public double promedioVistasPlataforma(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getPlataforma().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getVistas();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	public double promedioMe_gustaPlataforma(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getPlataforma().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getMe_gusta();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	public double promedioCompartidosPlataforma(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getPlataforma().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getCompartidos();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	
-	//promedio por tipo de publicacion
-	public double promedioComentariosTipo(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getTipo().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getComentarios();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	
-	public double promedioVistasTipo(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getTipo().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getVistas();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	public double promedioMe_gustaTipo(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getTipo().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getMe_gusta();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	public double promedioCompartidosTipo(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getTipo().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getCompartidos();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	public double promedioComentariosPlataforma(String plataforma) {
-		double salida=0;
-		int totalPublicaciones=0;
-		for(Metrica clave: metricas) {
-			if(clave.getPlataforma().equalsIgnoreCase(plataforma)) {
-				salida=salida+clave.getComentarios();
-			}
-			totalPublicaciones++;
-		}
-			
-		return salida/totalPublicaciones;	
-	}
-	
-	
+
 	//*************************************************
 	//*************************************************
 	//*************************************************
@@ -271,44 +219,39 @@ public class AnalizadorMetricas {
 		return salida;
 	}
 	
-	
-	
-	
-	
-	public String mejorRendimientoTipoPorPlataforma(String plataforma) {
+
+	public String mejorRendimientoTipo() {
+		
 		String salida="No participa en esta plataforma";
 		double rendimiento=-1;
 		List<String> tipos=tiposExistentes();
+		List<Metrica> temporal;
+		double temp=0;
+		int cantidad=0;
 		if(null!=tipos) {
-			List<Metrica> metricas=filtrarPorplataforma(plataforma);
-			double temp;
 			for(String clave:tipos) {
-				temp=promedioVistasTipo(clave);
+				temporal=filtrarPorTipo(clave);
+				for(Metrica clave2:temporal) {
+					cantidad++;
+					temp=temp+clave2.getVistas();
+				}
+			
+				temp=temp/cantidad;
 				if(temp>rendimiento) {
 					salida=clave;
 					rendimiento=temp;
 				}else if(temp==rendimiento) {
 					salida=salida+"*"+clave;
 				}
+				temp=0;
+				cantidad=0;
 			}
 		}
 		return salida;
 	}
 	
 	//Control de plataformas
-	public List<String> plataformasExistentes(){
-		List<String> salida=new ArrayList<String>();
-		
-		for(Metrica clave:metricas) {
-			if(!salida.contains(clave.getPlataforma())) {
-				salida.add(clave.getPlataforma());
-			}
-		}
-		
-		return salida;
-	}
-	
-	
+
 	
 	public HashMap<String,Integer> publicacionesPorPlataforma(){
 		HashMap<String,Integer> control=new HashMap<String,Integer>();
@@ -326,25 +269,6 @@ public class AnalizadorMetricas {
 	}
 	
 	
-	public String PlataformaMasComun() {
-		String salida="";
-		HashMap<String,Integer> control=publicacionesPorPlataforma();
-		int total=-1;
-		
-		
-		for(Map.Entry<String, Integer> clave: control.entrySet()) {
-			if(clave.getValue()>total) {
-				total=clave.getValue();
-				salida=clave.getKey();
-			}/*else if(clave.getValue()==total) {
-				salida=salida+"*"+clave.getKey();
-			}*/
-		}
-		
-		return salida;
-	}
-		
-	
 	//filtros
 	public List<Metrica> filtrarPorTipo(String tipo){
 		List<Metrica> salida=new ArrayList<Metrica>();
@@ -358,7 +282,7 @@ public class AnalizadorMetricas {
 		return salida;
 	}
 	
-	public List<Metrica> filtrarPorplataforma(String plataforma){
+	public List<Metrica> filtrarPorPlataforma(String plataforma){
 		List<Metrica> salida=new ArrayList<Metrica>();
 		
 		for(Metrica clave:metricas) {
@@ -418,7 +342,7 @@ public class AnalizadorMetricas {
 		return salida;
 	}
 	
-	public List<Metrica> filtrarPorCOmentarios(int min,int max){
+	public List<Metrica> filtrarPorComentarios(int min,int max){
 		List<Metrica> salida=new ArrayList<Metrica>();
 		
 		for(Metrica clave:metricas) {
@@ -441,4 +365,14 @@ public class AnalizadorMetricas {
 		
 		return salida;
 	}
+	
+	public List<String> extraerContenidos(){
+		ArrayList<String> contenidos=new ArrayList<String>();
+		for(Metrica clave:metricas) {
+			contenidos.add(clave.getContenido());
+		}
+		
+		return contenidos;
+	}
+	
 }//fin class
