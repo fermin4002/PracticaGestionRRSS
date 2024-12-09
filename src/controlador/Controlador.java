@@ -607,6 +607,7 @@ public class Controlador implements ActionListener,KeyListener {
 	}
 	
 	public void irVistaExportar() {
+		vista.exportando.setText("");
 		vista.pE2E7.setVisible(false);
 		vista.pE1.setVisible(false);
 		vista.pE3.setVisible(false);
@@ -815,8 +816,9 @@ public class Controlador implements ActionListener,KeyListener {
 		vista.e2ContenidoPlataforma.setText("Contenido que mejor funciona en "+plataforma+":");
 		vista.e2MejorContenidoPlataforma.setText(mejorTipoPlataforma);
 	}
-	
 
+	
+	
 	//EJ3
 	public void crearColaboracion() {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");

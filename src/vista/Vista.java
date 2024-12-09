@@ -192,13 +192,15 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setIconImage(new ImageIcon("recursosImg\\logo.png").getImage());
 		pE2E7 = new JPanel();
+		pE2E7.setBackground(new Color(207, 233, 252));
 		pE2E7.setLayout(null);
 		pE2E7.setBounds(0, 30, 880, 660);
 		pE2E7.setVisible(false);
 		
 		pExportar = new JPanel();
+		pExportar.setBackground(new Color(207, 233, 252));
 		pExportar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		pExportar.setLayout(null);
 		pExportar.setBounds(220, 30, 440, 660);
@@ -241,17 +243,122 @@ public class Vista extends JFrame {
 		panel_11 = new JPanel();
 		panel_11.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_11.setBackground(new Color(255, 255, 255));
-		panel_11.setBounds(80, 389, 280, 137);
+		panel_11.setBounds(10, 389, 420, 137);
 		pExportar.add(panel_11);
 		panel_11.setLayout(null);
 		
 		exportando = new JLabel("");
 		exportando.setForeground(new Color(0, 255, 0));
 		exportando.setHorizontalAlignment(SwingConstants.CENTER);
-		exportando.setBounds(30, 11, 220, 115);
+		exportando.setBounds(10, 11, 400, 115);
 		panel_11.add(exportando);
+		contentPane.add(pE2E7);
+		
+		e2Creadores = new JComboBox<String>();
+		e2Creadores.setBounds(80, 11, 170, 50);
+		pE2E7.add(e2Creadores);
+		
+		e2RedSocial = new JComboBox<String>();
+		e2RedSocial.setBounds(480, 11, 170, 50);
+		pE2E7.add(e2RedSocial);
+		
+		panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(454, 94, 383, 56);
+		pE2E7.add(panel);
+		panel.setLayout(null);
+		
+		e2PromedioMeGusta = new JLabel("Promedio me gusta:");
+		e2PromedioMeGusta.setHorizontalAlignment(SwingConstants.CENTER);
+		e2PromedioMeGusta.setBounds(0, 0, 383, 56);
+		e2PromedioMeGusta.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel.add(e2PromedioMeGusta);
+		
+		panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(29, 94, 383, 123);
+		pE2E7.add(panel_1);
+		
+		e2ContenidoCreador = new JLabel("Contenido que mejor le funciona:");
+		e2ContenidoCreador.setFont(new Font("Tahoma", Font.BOLD, 14));
+		e2ContenidoCreador.setHorizontalAlignment(SwingConstants.CENTER);
+		e2ContenidoCreador.setAlignmentX(0.5f);
+		e2ContenidoCreador.setBounds(10, 0, 363, 56);
+		panel_1.add(e2ContenidoCreador);
+		
+		e2MejorContenidoCreador = new JLabel("New label");
+		e2MejorContenidoCreador.setVerticalAlignment(SwingConstants.TOP);
+		e2MejorContenidoCreador.setHorizontalAlignment(SwingConstants.CENTER);
+		e2MejorContenidoCreador.setAlignmentX(0.5f);
+		e2MejorContenidoCreador.setBounds(10, 67, 363, 56);
+		panel_1.add(e2MejorContenidoCreador);
+		
+		panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(454, 161, 383, 56);
+		pE2E7.add(panel_2);
+		
+		e2PromedioVistas = new JLabel("Promedio vistas:");
+		e2PromedioVistas.setHorizontalAlignment(SwingConstants.CENTER);
+		e2PromedioVistas.setAlignmentX(0.5f);
+		e2PromedioVistas.setBounds(0, 0, 383, 56);
+		panel_2.add(e2PromedioVistas);
+		
+		panel_12 = new JPanel();
+		panel_12.setLayout(null);
+		panel_12.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panel_12.setBackground(Color.WHITE);
+		panel_12.setBounds(454, 228, 383, 56);
+		pE2E7.add(panel_12);
+		
+		e2TasaCrecimiento = new JLabel("Tasa de crecimiento 1º trimestre:");
+		e2TasaCrecimiento.setHorizontalAlignment(SwingConstants.CENTER);
+		e2TasaCrecimiento.setAlignmentX(0.5f);
+		e2TasaCrecimiento.setBounds(0, 0, 383, 56);
+		panel_12.add(e2TasaCrecimiento);
+		
+		panel_13 = new JPanel();
+		panel_13.setLayout(null);
+		panel_13.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panel_13.setBackground(Color.WHITE);
+		panel_13.setBounds(29, 228, 383, 276);
+		pE2E7.add(panel_13);
+		
+		e2ContenidoPlataforma = new JLabel("Contenido que mejor funciona en la plataforma:");
+		e2ContenidoPlataforma.setVerticalAlignment(SwingConstants.BOTTOM);
+		e2ContenidoPlataforma.setFont(new Font("Tahoma", Font.BOLD, 14));
+		e2ContenidoPlataforma.setHorizontalAlignment(SwingConstants.CENTER);
+		e2ContenidoPlataforma.setAlignmentX(0.5f);
+		e2ContenidoPlataforma.setBounds(10, 0, 363, 56);
+		panel_13.add(e2ContenidoPlataforma);
+		
+		e2MejorContenidoPlataforma = new JLabel("New label");
+		e2MejorContenidoPlataforma.setFont(new Font("Tahoma", Font.BOLD, 13));
+		e2MejorContenidoPlataforma.setHorizontalAlignment(SwingConstants.CENTER);
+		e2MejorContenidoPlataforma.setAlignmentX(0.5f);
+		e2MejorContenidoPlataforma.setBounds(10, 67, 363, 37);
+		panel_13.add(e2MejorContenidoPlataforma);
+		
+		scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(10, 115, 363, 146);
+		panel_13.add(scrollPane_2);
+		
+		e9Tabla = new JTable();
+		scrollPane_2.setViewportView(e9Tabla);
+		
+		e2Logo = new JLabel("");
+		e2Logo.setIcon(new ImageIcon("recursosImg\\Instagram.png"));
+		e2Logo.setHorizontalAlignment(SwingConstants.CENTER);
+		e2Logo.setBounds(474, 308, 341, 341);
+		pE2E7.add(e2Logo);
 		
 		pE1 = new JPanel();
+		pE1.setBackground(new Color(207, 233, 252));
 		pE1.setLayout(null);
 		pE1.setBounds(0, 30, 880, 660);
 		contentPane.add(pE1);
@@ -388,6 +495,7 @@ public class Vista extends JFrame {
 		pE1.add(e1Historico);
 		
 		pE5E11 = new JPanel();
+		pE5E11.setBackground(new Color(207, 233, 252));
 		pE5E11.setBounds(0, 30, 880, 660);
 		contentPane.add(pE5E11);
 		pE5E11.setLayout(null);
@@ -556,112 +664,9 @@ public class Vista extends JFrame {
 		btnE5EditarPublicacion = new JButton("Editar publicacion");
 		btnE5EditarPublicacion.setBounds(10, 45, 297, 23);
 		panel_23.add(btnE5EditarPublicacion);
-		contentPane.add(pE2E7);
-		
-		e2Creadores = new JComboBox<String>();
-		e2Creadores.setBounds(80, 11, 170, 50);
-		pE2E7.add(e2Creadores);
-		
-		e2RedSocial = new JComboBox<String>();
-		e2RedSocial.setBounds(480, 11, 170, 50);
-		pE2E7.add(e2RedSocial);
-		
-		panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(454, 94, 383, 56);
-		pE2E7.add(panel);
-		panel.setLayout(null);
-		
-		e2PromedioMeGusta = new JLabel("Promedio me gusta:");
-		e2PromedioMeGusta.setHorizontalAlignment(SwingConstants.CENTER);
-		e2PromedioMeGusta.setBounds(0, 0, 383, 56);
-		e2PromedioMeGusta.setAlignmentX(Component.CENTER_ALIGNMENT);
-		panel.add(e2PromedioMeGusta);
-		
-		panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(29, 94, 383, 123);
-		pE2E7.add(panel_1);
-		
-		e2ContenidoCreador = new JLabel("Contenido que mejor le funciona:");
-		e2ContenidoCreador.setFont(new Font("Tahoma", Font.BOLD, 14));
-		e2ContenidoCreador.setHorizontalAlignment(SwingConstants.CENTER);
-		e2ContenidoCreador.setAlignmentX(0.5f);
-		e2ContenidoCreador.setBounds(10, 0, 363, 56);
-		panel_1.add(e2ContenidoCreador);
-		
-		e2MejorContenidoCreador = new JLabel("New label");
-		e2MejorContenidoCreador.setVerticalAlignment(SwingConstants.TOP);
-		e2MejorContenidoCreador.setHorizontalAlignment(SwingConstants.CENTER);
-		e2MejorContenidoCreador.setAlignmentX(0.5f);
-		e2MejorContenidoCreador.setBounds(10, 67, 363, 56);
-		panel_1.add(e2MejorContenidoCreador);
-		
-		panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(454, 161, 383, 56);
-		pE2E7.add(panel_2);
-		
-		e2PromedioVistas = new JLabel("Promedio vistas:");
-		e2PromedioVistas.setHorizontalAlignment(SwingConstants.CENTER);
-		e2PromedioVistas.setAlignmentX(0.5f);
-		e2PromedioVistas.setBounds(0, 0, 383, 56);
-		panel_2.add(e2PromedioVistas);
-		
-		panel_12 = new JPanel();
-		panel_12.setLayout(null);
-		panel_12.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_12.setBackground(Color.WHITE);
-		panel_12.setBounds(454, 228, 383, 56);
-		pE2E7.add(panel_12);
-		
-		e2TasaCrecimiento = new JLabel("Tasa de crecimiento 1º trimestre:");
-		e2TasaCrecimiento.setHorizontalAlignment(SwingConstants.CENTER);
-		e2TasaCrecimiento.setAlignmentX(0.5f);
-		e2TasaCrecimiento.setBounds(0, 0, 383, 56);
-		panel_12.add(e2TasaCrecimiento);
-		
-		panel_13 = new JPanel();
-		panel_13.setLayout(null);
-		panel_13.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_13.setBackground(Color.WHITE);
-		panel_13.setBounds(29, 228, 383, 276);
-		pE2E7.add(panel_13);
-		
-		e2ContenidoPlataforma = new JLabel("Contenido que mejor funciona en la plataforma:");
-		e2ContenidoPlataforma.setVerticalAlignment(SwingConstants.BOTTOM);
-		e2ContenidoPlataforma.setFont(new Font("Tahoma", Font.BOLD, 14));
-		e2ContenidoPlataforma.setHorizontalAlignment(SwingConstants.CENTER);
-		e2ContenidoPlataforma.setAlignmentX(0.5f);
-		e2ContenidoPlataforma.setBounds(10, 0, 363, 56);
-		panel_13.add(e2ContenidoPlataforma);
-		
-		e2MejorContenidoPlataforma = new JLabel("New label");
-		e2MejorContenidoPlataforma.setFont(new Font("Tahoma", Font.BOLD, 13));
-		e2MejorContenidoPlataforma.setHorizontalAlignment(SwingConstants.CENTER);
-		e2MejorContenidoPlataforma.setAlignmentX(0.5f);
-		e2MejorContenidoPlataforma.setBounds(10, 67, 363, 37);
-		panel_13.add(e2MejorContenidoPlataforma);
-		
-		scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(10, 115, 363, 146);
-		panel_13.add(scrollPane_2);
-		
-		e9Tabla = new JTable();
-		scrollPane_2.setViewportView(e9Tabla);
-		
-		e2Logo = new JLabel("");
-		e2Logo.setIcon(new ImageIcon("recursosImg\\Instagram.png"));
-		e2Logo.setHorizontalAlignment(SwingConstants.CENTER);
-		e2Logo.setBounds(474, 308, 341, 341);
-		pE2E7.add(e2Logo);
 		
 		pE3 = new JPanel();
+		pE3.setBackground(new Color(207, 233, 252));
 		pE3.setBounds(0, 30, 880, 660);
 		contentPane.add(pE3);
 		pE3.setLayout(null);
