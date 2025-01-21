@@ -256,7 +256,7 @@ public class Controlador implements ActionListener,KeyListener {
 			break;
 			case "guardar metricas":
 				try {
-					crearMetricaCSV(metricas, "ficherosSalida/metricas.csv");
+					crearMetricaCSV(metricas, "ficheros/metricas_contenido.csv");
 				} catch (Exception e1) {
 					
 					e1.printStackTrace();
@@ -264,7 +264,7 @@ public class Controlador implements ActionListener,KeyListener {
 			break;
 			case "guardar creadores":
 				try {
-					guardarJson("ficherosSalida/creadores.json", rootNode);
+					guardarJson("ficheros/creadores.json", rootNode);
 				} catch (Exception e1) {
 					
 					e1.printStackTrace();
